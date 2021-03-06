@@ -25,9 +25,9 @@ android {
             // Use same signing config for now.
             signingConfig signingConfigs.debug
         }
-//        debug {
-//            testCoverageEnabled true
-//        }
+        debug {
+            testCoverageEnabled true
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -105,6 +105,13 @@ dependencies {
     annotationProcessor deps.app.glideCompiler
 
     implementation deps.androidTest.espressoIdling
+
+    implementation deps.androidTest.runner
+    implementation deps.androidTest.junitExt
+    implementation deps.androidTest.coreTest
+
+    implementation deps.test.mockito
+    implementation "androidx.arch.core:core-testing:2.1.0"
 }
 
 /*
@@ -115,12 +122,12 @@ dependencies {
     debugImplementation deps.debug.interceptor
     debugImplementation deps.debug.chuck
 
-    androidTestImplementation deps.androidTest.runner
-    androidTestImplementation deps.androidTest.junitExt
-    androidTestImplementation deps.androidTest.coreTest
-
-    debugImplementation deps.test.mockito
-    debugImplementation "androidx.arch.core:core-testing:2.1.0"
+//    androidTestImplementation deps.androidTest.runner
+//    androidTestImplementation deps.androidTest.junitExt
+//    androidTestImplementation deps.androidTest.coreTest
+//
+//    debugImplementation deps.test.mockito
+//    debugImplementation "androidx.arch.core:core-testing:2.1.0"
 }
 
 /*
