@@ -11,11 +11,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      # path: ~/Mindyh
-      # Set Fabric Api Key with environment variables
-      #      - run:
-      #          name: key
-      #          command: echo 'tmdb_api_key="$TMDB_API_KEY"' >> ~/actors-db-android/local.properties
+
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -29,7 +25,7 @@ jobs:
           command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
-          command: ./gradlew androidDependencies
+          command: ./gradlew dependencies
       - save_cache:
           paths:
             - ~/.gradle
