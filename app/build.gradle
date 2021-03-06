@@ -122,12 +122,12 @@ dependencies {
     debugImplementation deps.debug.interceptor
     debugImplementation deps.debug.chuck
 
-//    androidTestImplementation deps.androidTest.runner
-//    androidTestImplementation deps.androidTest.junitExt
-//    androidTestImplementation deps.androidTest.coreTest
-//
-//    debugImplementation deps.test.mockito
-//    debugImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation deps.androidTest.runner
+    androidTestImplementation deps.androidTest.junitExt
+    androidTestImplementation deps.androidTest.coreTest
+
+    debugImplementation deps.test.mockito
+    debugImplementation "androidx.arch.core:core-testing:2.1.0"
 }
 
 /*
