@@ -37,7 +37,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
 
-        // Init Views
-        initViews();
+        // asj1 fix recreating the detail
+        if (savedInstanceState == null) {
+            // Init Views
+            initViews();
+        }
+
+
     }
 }

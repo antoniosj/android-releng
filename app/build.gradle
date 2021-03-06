@@ -61,8 +61,13 @@ android {
             resources.srcDirs += ['src/androidTest/resources']
             resources.srcDirs += ['app/src/androidTest/resources']
         }
+        main {
+            java {
+                srcDirs 'src\\main\\java', 'src\\test', 'src\\test\\java'
+            }
+        }
     }
-    useLibrary 'android.test.runner'
+    //useLibrary 'android.test.runner'
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
 }
@@ -109,6 +114,13 @@ dependencies {
     /* Debug Dependencies */
     debugImplementation deps.debug.interceptor
     debugImplementation deps.debug.chuck
+
+    androidTestImplementation deps.androidTest.runner
+    androidTestImplementation deps.androidTest.junitExt
+    androidTestImplementation deps.androidTest.coreTest
+
+    debugImplementation deps.test.mockito
+    debugImplementation "androidx.arch.core:core-testing:2.1.0"
 }
 
 /*
@@ -127,6 +139,7 @@ dependencies {
 
     testImplementation deps.test.mockitokotlin
     testImplementation deps.test.mockwebserver
+
 }
 
 /**
@@ -152,5 +165,9 @@ dependencies {
     androidTestImplementation deps.androidTest.espressoIntents
     androidTestImplementation deps.androidTest.espressoIdling
     androidTestImplementation deps.androidTest.uiautomator
+
+    // change later
+    //androidTestImplementation deps.test.mockitoAndroid
+    androidTestImplementation 'org.mockito:mockito-android:2.23.4'
 }
 

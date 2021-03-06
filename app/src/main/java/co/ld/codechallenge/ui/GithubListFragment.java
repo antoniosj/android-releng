@@ -17,6 +17,7 @@ import java.util.List;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveDataReactiveStreams;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -101,8 +102,10 @@ public class GithubListFragment extends BaseFragment<GithubViewModel>
     private void getData() {
         EspressoIdlingResource.increment();
         progressIndicator.setVisibility(View.VISIBLE);
-        mViewModel.getRepos(RAW_QUERY)
-                .observe(getViewLifecycleOwner(), this::consumeData);
+
+        // asj fixing screen orientation bug
+        LiveDataReactiveStreams.fromPublisher(mViewModel.with(getViewLifecycleOwner()).getRepoRx(RAW_QUERY));
+        mViewModel.liveData.observe(getViewLifecycleOwner(), this::consumeData);
     }
 
     /**

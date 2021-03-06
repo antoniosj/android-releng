@@ -86,7 +86,7 @@ public class GithubDetailFragment extends BaseFragment {
 
     @Override
     protected void initViews(@NonNull View view) {
-        name = view.findViewById(R.id.full_name);
+        name = view.findViewById(R.id.name);
         desc = view.findViewById(R.id.desc);
         url = view.findViewById(R.id.url);
         username = view.findViewById(R.id.username);
@@ -100,7 +100,7 @@ public class GithubDetailFragment extends BaseFragment {
      */
     private void setData() {
         EspressoIdlingResource.increment();
-        name.setText(getString(R.string.template_full_name, mRepo.getFullName()));
+        name.setText(getString(R.string.template_full_name, mRepo.getName()));
         uri = (getString(R.string.template_full_name, mRepo.getFullName()));
         desc.setText(getString(R.string.template_desc, mRepo.getDescription()));
         url.setText(getString(R.string.template_url, mRepo.getUrl()));
@@ -119,7 +119,8 @@ public class GithubDetailFragment extends BaseFragment {
 
         fab.setOnClickListener((View v) -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(uri));
+            // asj1 fix intent url
+            i.setData(Uri.parse(mRepo.getUrl()));
             startActivity(i);
         });
     }

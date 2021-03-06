@@ -57,7 +57,7 @@ public class RepoListAdapter extends ListAdapter<Repo, RepoListAdapter.RepoViewH
         Repo repo = getItem(position);
 
         // Update views
-        holder.name.setText(repo.getFullName());
+        holder.name.setText(repo.getName());
         holder.desc.setText(repo.getDescription());
 
         // Load image

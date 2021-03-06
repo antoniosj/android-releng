@@ -32,7 +32,8 @@ public class GithubViewModel extends ViewModel {
 
     // Create live data holder.
     @NonNull
-    private final LiveDataWrap<List<Repo>> liveData = new LiveDataWrap<>();
+    private final LiveDataWrap<List<Repo>> mutableLiveData = new LiveDataWrap<>();
+    public LiveData<Response<List<Repo>>> liveData = mutableLiveData;
 
     @Nullable
     private LifecycleOwner lifecycle;
@@ -57,7 +58,7 @@ public class GithubViewModel extends ViewModel {
                 // Get data
                 repository.getData(query)
                         // Subscribe for Rx result with LiveData
-                        .subscribe(LiveDataSubscriber.with(liveData))
+                        .subscribe(LiveDataSubscriber.with(mutableLiveData))
         );
         return liveData;
     }
