@@ -25,9 +25,9 @@ android {
             // Use same signing config for now.
             signingConfig signingConfigs.debug
         }
-        debug {
-            testCoverageEnabled true
-        }
+//        debug {
+//            testCoverageEnabled true
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
