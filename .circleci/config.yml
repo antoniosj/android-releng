@@ -8,8 +8,7 @@ jobs:
     docker:
       - image: circleci/android:api-29
     environment:
-      JVM_OPTS: -Xmx3200m
-      JAVA_TOOL_OPTIONS: "-Xms1024m -Xmx3200m"
+      JVM_OPTS: "-Xms1024m -Xmx3200m"
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=2"
 
     steps:
