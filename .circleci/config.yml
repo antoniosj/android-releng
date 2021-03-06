@@ -23,7 +23,7 @@ jobs:
       # Then lint and run your tests!
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew testDebugUnitTest
 
 workflows:
   # Below is the definition of your workflow.
