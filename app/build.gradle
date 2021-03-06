@@ -36,22 +36,22 @@ android {
     lintOptions {
         abortOnError false
     }
-//    testOptions {
-//        animationsDisabled = true
-//        unitTests {
-//            all {
-//                jacoco {
-//                    includeNoLocationClasses = true
-//                }
-//                testLogging {
-//                    exceptionFormat = "full"
-//                    events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-//                }
-//            }
-//            returnDefaultValues = true
-//            includeAndroidResources = true
-//        }
-//    }
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            all {
+                jacoco {
+                    includeNoLocationClasses = true
+                }
+                testLogging {
+                    exceptionFormat = "full"
+                    events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+                }
+            }
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
     sourceSets {
         test {
             resources.srcDirs += ['src/test/resources']
