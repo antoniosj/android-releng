@@ -11,7 +11,7 @@
 
 #### Bugs fixed
 
-**Orientation bug: ** App was recreating the entire list after a orientation change on List Screen. 
+**Orientation bug:** App was recreating the entire list after a orientation change on List Screen. 
 
 **Intent URL:** App was crashing when the user tried to open the repo website. 
 
@@ -37,7 +37,7 @@ Project is on [GitHub](https://github.com/antoniosj/android-releng) and CI chose
 
 #### Static Analysis
 
-**Lint (debug flavor) was used: ** `lint.xml` - reports are under `reports/lint-results-debug.html`. If running locally reports will be under `build/reports/lint-results-debug-xml`
+**Lint (debug flavor) was used:** `lint.xml` - reports are under `reports/lint-results-debug.html`. If running locally reports will be under `build/reports/lint-results-debug-xml`
 
 #### Challenges
 
@@ -56,3 +56,4 @@ Everything works fine locally, but in the pipeline lots of problems happen. To n
 
 3 - Google cloud docs for any other than Jenkins are incomplete. I felt lack of information regarding account permissions.
 
+4 - Sometimes a UI tests from the battery tests were failing because they couldn't find the view element but in general it works.

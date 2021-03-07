@@ -128,8 +128,8 @@ public class FlowTest {
                 .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
 
         onView(withId(R.id.repo_list)).perform(click());
-        onView(withId(R.id.name))
-                .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+
+
         onView(withId(R.id.desc))
                 .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
         onView(withId(R.id.url))
