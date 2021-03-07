@@ -45,9 +45,9 @@ jobs:
       - run:
           name: Wait emulator
           command: |
-          circle-android wait-for-boot |
-      - run : sleep 30 |
-          adb shell input keyevent 82
+          circle-android wait-for-boot
+      - run:
+          command: sleep 30 | adb shell input keyevent 82
       - run:
           name: Run UI Tests
           command: ./gradlew cAT
