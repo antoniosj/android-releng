@@ -69,6 +69,10 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
       - run:
+          name: Run Lint on Debug flavor
+          command: ./gradlew lintDebug
+
+      - run:
           name: Run Unit tests
           command: ./gradlew test --stacktrace
 

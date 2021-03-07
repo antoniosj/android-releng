@@ -34,9 +34,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    lintOptions {
-        abortOnError false
-    }
+
     testOptions {
         animationsDisabled = true
         unitTests {
@@ -69,7 +67,15 @@ android {
             }
         }
     }
-    //useLibrary 'android.test.runner'
+
+    lintOptions {
+        lintConfig file("lint.xml")
+        abortOnError false
+        checkAllWarnings true
+        warningsAsErrors false
+    }
+
+    //useLibrary 'android.test.runner' conflicting with the 1.3.0 version added
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
 }
@@ -108,13 +114,6 @@ dependencies {
 
     implementation deps.androidTest.espressoIdling
 
-    implementation deps.androidTest.runner
-    implementation deps.androidTest.junitExt
-    implementation deps.androidTest.coreTest
-
-    implementation deps.test.mockito
-    implementation "androidx.arch.core:core-testing:2.1.0"
-
     implementation platform('com.google.firebase:firebase-bom:26.6.0')
 }
 
@@ -131,7 +130,7 @@ dependencies {
     androidTestImplementation deps.androidTest.coreTest
 
     debugImplementation deps.test.mockito
-    debugImplementation "androidx.arch.core:core-testing:2.1.0"
+    debugImplementation deps.test.archcoreTesting
 }
 
 /*
@@ -177,8 +176,6 @@ dependencies {
     androidTestImplementation deps.androidTest.espressoIdling
     androidTestImplementation deps.androidTest.uiautomator
 
-    // change later
-    //androidTestImplementation deps.test.mockitoAndroid
-    androidTestImplementation 'org.mockito:mockito-android:2.23.4'
+    androidTestImplementation deps.androidTest.androidMockito
 }
 

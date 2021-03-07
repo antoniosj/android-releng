@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+    <issue id="MissingRegistered">
+        <ignore path="src/main/res/layout/*" />
+    </issue>
+
+    <!-- Unused ids resolved by
+    kotlinx on activities -->
+    <issue id="UnusedIds">
+        <ignore path="src/main/res/layout/*.xml" />
+    </issue>
+
+    <!-- Lint will inform that there is a new version for dependencies -->
+    <issue id="NewerVersionAvailable" severity="informational" />
+    <issue id="GradleDependency" severity="informational" />
+
+</lint>
