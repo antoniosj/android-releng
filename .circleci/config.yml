@@ -28,7 +28,7 @@ references:
     persist_to_workspace:
       root: .
       paths:
-        - ftl-tests
+        - app/ftl-tests
         - build
         - app/build
 
@@ -93,11 +93,11 @@ jobs:
 
       - run:
           name: Setup Google Cloud auth
-          command: ftl-tests/setup.sh
+          command: app/ftl-tests/setup.sh
 
       - run:
           name: Run tests on Firebase Test Lab
-          command: ftl-tests/run-tests.sh
+          command: app/ftl-tests/run-tests.sh
 
 workflows:
   version: 2
