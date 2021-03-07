@@ -1,12 +1,12 @@
 #!/bin/sh
 
-if [ "$GCLOUD_SERVICE_KEY" = "" ]; then
-  echo "GCLOUD_SERVICE_KEY env variable is empty. Exiting."
+if [ "$GCLOUD" = "" ]; then
+  echo "GCLOUD env variable is empty. Exiting."
   exit 1
 fi
 
 # Export to secrets file
-echo $GCLOUD_SERVICE_KEY | base64 -di > client-secret.json
+echo $GCLOUD | base64 -di > client-secret.json
 
 # Set project ID
 gcloud config set project android-releng
