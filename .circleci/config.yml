@@ -4,7 +4,7 @@ version: 2.1
 
 references:
   workspace: &workspace
-               ~/android-releng
+    ~/android-releng
 
   config_android: &config_android
     working_directory: *workspace
@@ -14,27 +14,27 @@ references:
       JAVA_TOOL_OPTIONS: "-Xms1024m -Xmx3200m"
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=2"
 
-    config_gcloud: &config_gcloud
-      working_directory: *workspace
-      docker:
-        - image: google/cloud-sdk:latest
-      environment:
-        TERM: dumb
+  config_gcloud: &config_gcloud
+    working_directory: *workspace
+    docker:
+      - image: google/cloud-sdk:latest
+    environment:
+      ERM: dumb
 
-    cache_key: &cache_key
-      key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+  cache_key: &cache_key
+    key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
-    persist_to_workspace: &persist_to_workspace
-      persist_to_workspace:
-        root: .
-        paths:
-          - ftl-tests
-          - build
-          - app/build
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: .
+      paths:
+        - ftl-tests
+        - build
+        - app/build
 
-    attach_workspace: &attach_workspace
-      attach_workspace:
-        at: *workspace
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace
 
 jobs:
   build:
