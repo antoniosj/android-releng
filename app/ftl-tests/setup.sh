@@ -11,7 +11,7 @@ echo $GCLOUD_SERVICE_KEY | base64 -di > client-secret.json
 # Set project ID
 gcloud config set project android-releng
 
-# Auth account
+# Auth account gcloud api
 gcloud auth activate-service-account firebase-adminsdk-o1bzs@android-releng.iam.gserviceaccount.com --key-file client-secret.json
 
 # Delete secret
