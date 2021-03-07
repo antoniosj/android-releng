@@ -92,6 +92,14 @@ jobs:
       - *attach_workspace
 
       - run:
+          name: Chmod permissions - setup
+          command: sudo chmod +x app/ftl-tests/setup.sh
+
+      - run:
+          name: Chmod permissions - run-tests
+          command: sudo chmod +x app/ftl-tests/run-tests.sh
+
+      - run:
           name: Setup Google Cloud auth
           command: app/ftl-tests/setup.sh
 
