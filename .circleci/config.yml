@@ -11,7 +11,7 @@ references:
     docker:
       - image: circleci/android:api-28-alpha
     environment:
-      JAVA_TOOL_OPTIONS: "-Xms1024m -Xmx3200m"
+      JAVA_TOOL_OPTIONS: -Xmx3200m
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=2"
 
   config_gcloud: &config_gcloud
@@ -47,8 +47,8 @@ jobs:
           <<: *cache_key
 
       - run:
-          name: Accept licenses
-          command: yes | sdkmanager --licenses || true
+          name: Add YES to License
+          command: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses || if [ $? -ne '141' ]; then exit $?; fi;  #Captures SIGPIPE 141 error but still allow repeating "y" to accept all licenses
 
       - run:
           name: Store Firebase Key
@@ -66,10 +66,11 @@ jobs:
           <<: *cache_key
           paths:
             - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
       - run:
           name: Run Unit tests
-          command: ./gradlew test
+          command: ./gradlew test --stacktrace
 
       - store_test_results:
           path: app/build/test-results
