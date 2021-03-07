@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 apply from: "$project.rootDir/gradle/jacoco.gradle"
 
@@ -113,6 +114,8 @@ dependencies {
 
     implementation deps.test.mockito
     implementation "androidx.arch.core:core-testing:2.1.0"
+
+    implementation platform('com.google.firebase:firebase-bom:26.6.0')
 }
 
 /*
