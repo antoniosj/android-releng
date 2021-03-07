@@ -47,10 +47,6 @@ jobs:
           <<: *cache_key
 
       - run:
-          name: Print
-          command: ls ~/android-releng
-
-      - run:
           name: Accept licenses
           command: yes | sdkmanager --licenses || true
 
