@@ -79,6 +79,10 @@ jobs:
           path: app/build/reports
           destination: reports
 
+      - run:
+          name: Build
+          command: ./gradlew clean assembleDebug assembleDebugAndroidTest  --stacktrace
+
       - store_artifacts:
           path: app/build/outputs/apk/
           destination: apks/
