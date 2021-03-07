@@ -114,6 +114,13 @@ dependencies {
 
     implementation deps.androidTest.espressoIdling
 
+    implementation deps.androidTest.runner
+    implementation deps.androidTest.junitExt
+    implementation deps.androidTest.coreTest
+
+    implementation deps.test.mockito
+    implementation deps.test.archcoreTesting
+
     implementation platform('com.google.firebase:firebase-bom:26.6.0')
 }
 

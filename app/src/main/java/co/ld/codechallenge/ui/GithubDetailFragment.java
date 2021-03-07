@@ -119,7 +119,7 @@ public class GithubDetailFragment extends BaseFragment {
 
         fab.setOnClickListener((View v) -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            // asj1 fix intent url
+            // asj - Fixed intent url
             i.setData(Uri.parse(mRepo.getUrl()));
             startActivity(i);
         });
