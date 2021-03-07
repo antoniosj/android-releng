@@ -105,10 +105,6 @@ jobs:
           name: Setup Google Cloud auth
           command: app/ftl-tests/setup.sh
 
-      - run:
-          name: Run tests on Firebase Test Lab
-          command: app/ftl-tests/run-tests.sh
-
 workflows:
   version: 2
   build_test_and_deploy:
