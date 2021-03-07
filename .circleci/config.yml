@@ -29,15 +29,18 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - run:
-          name: Source Set
-          command: ./gradlew sourceSets
+          name: install debugAndroidTest
+          command: ./gradlew installDebugAndroidTest
+      - run:
+          name: install debug
+          command: ./gradlew installDebug
       - save_cache:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
           name: Run Tests
-          command: ./gradlew testDebugUnitTest --stacktrace
+          command: ./gradlew testDebugUnitTest --info
       - store_artifacts:
           path: app/build/reports
           destination: reports
