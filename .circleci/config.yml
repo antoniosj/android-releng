@@ -45,11 +45,9 @@ jobs:
       - run:
           name: Wait emulator
           command: |
-          # wait for it to have booted
-          circle-android wait-for-boot
-          # unlock the emulator screen
-            sleep 30
-            adb shell input keyevent 82
+          circle-android wait-for-boot |
+          sleep 30 |
+          adb shell input keyevent 82
       - run:
           name: Run UI Tests
           command: ./gradlew cAT
