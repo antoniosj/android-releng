@@ -97,25 +97,6 @@ public class FlowTest {
         assertEquals("co.ld.codechallenge", context.getPackageName());
     }
 
-    @Test
-    public void testDeviceRotation() {
-        ActivityScenario.launch(MainActivity.class);
-        setResponse(true);
-
-        onView(withId(R.id.repo_list)).perform(scrollToPosition(20));
-        EspressoIdlingResource.increment();
-
-        UiDevice device = UiDevice.getInstance(getInstrumentation());
-
-        try {
-           device.setOrientationRight();
-           device.waitForIdle(1000);
-
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void setResponse(boolean shouldLoadItems) {
         if (shouldLoadItems) {
@@ -173,6 +154,26 @@ public class FlowTest {
         setResponse(false);
         onView(withId(R.id.repo_list))
                 .check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+    }
+
+    @Test
+    public void testDeviceRotation() {
+        ActivityScenario.launch(MainActivity.class);
+        setResponse(true);
+
+        onView(withId(R.id.repo_list)).perform(scrollToPosition(20));
+        EspressoIdlingResource.increment();
+
+        UiDevice device = UiDevice.getInstance(getInstrumentation());
+
+        try {
+            device.setOrientationRight();
+            device.waitForIdle(1000);
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private GsonConverterFactory getGsonCoverter() {
