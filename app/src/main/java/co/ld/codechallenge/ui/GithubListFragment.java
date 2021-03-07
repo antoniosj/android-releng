@@ -103,7 +103,7 @@ public class GithubListFragment extends BaseFragment<GithubViewModel>
         EspressoIdlingResource.increment();
         progressIndicator.setVisibility(View.VISIBLE);
 
-        // asj fixing screen orientation bug
+        // asj - Fixed screen orientation bug
         LiveDataReactiveStreams.fromPublisher(mViewModel.with(getViewLifecycleOwner()).getRepoRx(RAW_QUERY));
         mViewModel.liveData.observe(getViewLifecycleOwner(), this::consumeData);
     }
