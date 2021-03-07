@@ -41,11 +41,12 @@ jobs:
       - run:
           name: Launch emulator
           command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator @Pixel_2_API_26 -noaudio -no-boot-anim -no-window -accel auto
+          background: true
       - run:
           name: Wait emulator
           command: circle-android wait-for-boot
       - run:
-          command: sleep 30 | adb shell input keyevent 82
+          command: sleep 60 | adb shell input keyevent 82
       - run:
           name: Run UI Tests
           command: ./gradlew cAT --info
