@@ -106,8 +106,12 @@ jobs:
           command: sudo chmod +x app/ftl-tests/run-tests.sh
 
       - run:
-          name: Setup Google Cloud auth # adjust here later
+          name: Setup Google Cloud auth
           command: app/ftl-tests/setup.sh
+
+      - run:
+          name: Run UI Firebase Test Lab with GCloud
+          command: app/ftl-tests/run-tests.sh
 
 workflows:
   version: 2
