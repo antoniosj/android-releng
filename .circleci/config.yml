@@ -91,6 +91,8 @@ jobs:
     steps:
       - *attach_workspace
 
+      - run: apt-get install -y sudo
+
       - run:
           name: Chmod permissions - setup
           command: sudo chmod +x app/ftl-tests/setup.sh
