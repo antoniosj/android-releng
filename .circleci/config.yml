@@ -55,7 +55,7 @@ jobs:
           command: echo $GOOGLE_SERVICES | base64 -di > ~/android-releng/app/google-services.json
 
       - run:
-          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this
           command: sudo chmod +x ./gradlew
 
       - run:
